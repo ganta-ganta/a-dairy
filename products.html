@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout and Order History</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <div class="container mt-4">
+    <h1 class="text-center">Shopping Cart</h1>
+    <div class="row">
+      <div class="col-md-8">
+        <h3>Product List</h3>
+        <div class="row" id="product-list">
+          <!-- Product cards will be loaded here dynamically -->
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h3>Your Cart</h3>
+        <div class="card">
+          <div class="card-body">
+            <div class="cart-items" id="cart-items">
+              <!-- Cart items will be loaded dynamically -->
+            </div>
+            <hr>
+            <h5>Total: ₹<span id="total-price">0</span></h5>
+            <button class="btn btn-success btn-block" id="checkout-btn">Checkout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+   <!-- Order Confirmation Modal -->
+<div class="modal fade" id="orderConfirmationModal" tabindex="-1" aria-labelledby="orderConfirmationLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="orderConfirmationLabel">Confirm Your Order</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" id="confirmation-details">
+        <!-- Order details will be injected here -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="confirm-order-btn">Confirm Order</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Checkout Button -->
+<button class="btn btn-success" id="checkout-btn">Checkout</button>
+    <hr>
+    <h3>Order History</h3>
+    <div class="card">
+      <div class="card-body">
+        <div id="order-history">
+          <!-- Order history will be displayed here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
