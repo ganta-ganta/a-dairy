@@ -1,9 +1,7 @@
+// Load Order History
 function loadOrderHistory() {
     const orderHistory = document.getElementById("order-history");
-    const ordersRaw = localStorage.getItem("orders");
-    console.log("Raw orders data:", ordersRaw); // Log raw data
-    const orders = JSON.parse(ordersRaw) || [];
-    console.log("Parsed orders array:", orders); // Log parsed data
+    const orders = JSON.parse(localStorage.getItem("orders")) || [];
 
     if (orders.length === 0) {
         orderHistory.innerHTML = "<p>No past orders found.</p>";
@@ -17,13 +15,11 @@ function loadOrderHistory() {
                 <div class="card-body">
                     <h5 class="card-title">Order Date: ${order.date}</h5>
                     <div class="row">
-                        ${order.items.map(item => `
-                            <div class="col-md-3 text-center">
-                                <img src="${item.image}" alt="${item.name}" class="img-fluid mb-2 rounded">
-                                <p>${item.name}</p>
-                                <p>Price: ₹${item.price}</p>
+                        ${order.orderDetails.split("\n").map(item => `
+                            <div class="col-md-6">
+                                <p>${item}</p>
                             </div>
-                        `).join('')}
+                        `).join("")}
                     </div>
                     <hr>
                     <p><strong>Total:</strong> ₹${order.total}</p>
@@ -32,3 +28,6 @@ function loadOrderHistory() {
         `)
         .join('');
 }
+
+// Initialize the order history page
+document.addEventListener("DOMContentLoaded", loadOrderHistory);
