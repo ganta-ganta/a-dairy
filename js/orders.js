@@ -15,11 +15,13 @@ function loadOrderHistory() {
                 <div class="card-body">
                     <h5 class="card-title">Order Date: ${order.date}</h5>
                     <div class="row">
-                        ${order.orderDetails.split("\n").map(item => `
-                            <div class="col-md-6">
-                                <p>${item}</p>
+                        ${order.items.map(item => `
+                            <div class="col-md-3 text-center">
+                                <img src="${item.image}" alt="${item.name}" class="img-fluid mb-2 rounded">
+                                <p>${item.name}</p>
+                                <p>Price: ₹${item.price}</p>
                             </div>
-                        `).join("")}
+                        `).join('')}
                     </div>
                     <hr>
                     <p><strong>Total:</strong> ₹${order.total}</p>
