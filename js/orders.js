@@ -1,8 +1,9 @@
-
-// Load Order History from Local Storage
 function loadOrderHistory() {
     const orderHistory = document.getElementById("order-history");
-    const orders = JSON.parse(localStorage.getItem("orders")) || [];
+    const ordersRaw = localStorage.getItem("orders");
+    console.log("Raw orders data:", ordersRaw); // Log raw data
+    const orders = JSON.parse(ordersRaw) || [];
+    console.log("Parsed orders array:", orders); // Log parsed data
 
     if (orders.length === 0) {
         orderHistory.innerHTML = "<p>No past orders found.</p>";
@@ -31,6 +32,3 @@ function loadOrderHistory() {
         `)
         .join('');
 }
-
-// Initialize Page
-document.addEventListener("DOMContentLoaded", loadOrderHistory);
